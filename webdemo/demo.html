@@ -1,0 +1,27 @@
+<?php
+    setcookie('check', '123', time()+120000, '/');
+    echo "demo";
+?>
+<html>
+	<head>
+    <!--
+        config:
+            hookpage
+            level: autofix/warning/confirm/forbid
+    -->
+    <script taint src="../taintjs/taint.js" config='hookpage hooktype=syntactic level=autofix' scanner='xsscookie ghostcookie'></script>
+	<script>
+			//console.log('code in header-js-tag');
+	</script>
+	</head>
+	<body>
+		<script>
+			//console.log('code in body-js-tag');
+		</script>	
+        <div id='content'>content</div>
+        <img id='photo'></img>
+        <div>log:</div>
+        <textarea id='logger' style='width: 600px; height: 400px;'></textarea>
+        <script src="demo.js"></script>
+	</body>
+</html>
